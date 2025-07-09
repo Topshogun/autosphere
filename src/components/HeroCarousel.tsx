@@ -20,8 +20,12 @@ export function HeroCarousel() {
 
   const categoryGradients = {
     AI: 'from-blue-600 to-purple-600',
-    Design: 'from-green-500 to-teal-600',
-    Construction: 'from-orange-500 to-red-600'
+    'Finance & Accounting': 'from-green-500 to-emerald-600',
+    'Content Creation & Marketing': 'from-pink-500 to-rose-600',
+    'Personal Branding & Thought Leadership': 'from-purple-500 to-indigo-600',
+    'Operations & Productivity': 'from-orange-500 to-amber-600',
+    'Sales & Customer Relations': 'from-cyan-500 to-blue-600',
+    'E-commerce & Retail': 'from-red-500 to-pink-600'
   };
 
   // Fetch the 5 most recent articles

@@ -7,21 +7,29 @@ import { NewsletterModal } from './NewsletterModal';
 
 const trendingTags = [
   { name: 'Machine Learning', category: 'AI' },
-  { name: 'Sustainable Design', category: 'Design' },
-  { name: 'Smart Buildings', category: 'Construction' },
-  { name: 'Neural Networks', category: 'AI' },
-  { name: 'Green Tech', category: 'Design' },
-  { name: 'Automation', category: 'Construction' },
-  { name: 'Urban Planning', category: 'Design' },
+  { name: 'Financial Planning', category: 'Finance & Accounting' },
+  { name: 'Content Strategy', category: 'Content Creation & Marketing' },
+  { name: 'Personal Brand', category: 'Personal Branding & Thought Leadership' },
+  { name: 'Workflow Automation', category: 'Operations & Productivity' },
+  { name: 'CRM Systems', category: 'Sales & Customer Relations' },
+  { name: 'Online Store', category: 'E-commerce & Retail' },
   { name: 'AI Ethics', category: 'AI' },
-  { name: 'BIM Technology', category: 'Construction' },
-  { name: 'Future Cities', category: 'Design' }
+  { name: 'Tax Strategy', category: 'Finance & Accounting' },
+  { name: 'Social Media', category: 'Content Creation & Marketing' },
+  { name: 'Thought Leadership', category: 'Personal Branding & Thought Leadership' },
+  { name: 'Process Optimization', category: 'Operations & Productivity' },
+  { name: 'Sales Funnel', category: 'Sales & Customer Relations' },
+  { name: 'Digital Commerce', category: 'E-commerce & Retail' }
 ];
 
 const categories = [
   { name: 'AI', path: '/category/AI', color: 'from-blue-500 to-purple-600' },
-  { name: 'Design', path: '/category/Design', color: 'from-green-500 to-teal-500' },
-  { name: 'Construction', path: '/category/Construction', color: 'from-orange-500 to-red-500' }
+  { name: 'Finance & Accounting', path: '/category/Finance & Accounting', color: 'from-green-500 to-emerald-600' },
+  { name: 'Content Creation & Marketing', path: '/category/Content Creation & Marketing', color: 'from-pink-500 to-rose-600' },
+  { name: 'Personal Branding & Thought Leadership', path: '/category/Personal Branding & Thought Leadership', color: 'from-purple-500 to-indigo-600' },
+  { name: 'Operations & Productivity', path: '/category/Operations & Productivity', color: 'from-orange-500 to-amber-600' },
+  { name: 'Sales & Customer Relations', path: '/category/Sales & Customer Relations', color: 'from-cyan-500 to-blue-600' },
+  { name: 'E-commerce & Retail', path: '/category/E-commerce & Retail', color: 'from-red-500 to-pink-600' }
 ];
 
 export function Sidebar() {
@@ -54,8 +62,7 @@ export function Sidebar() {
       <div className="bg-card rounded-xl p-6 border border-border">
         <h3 className="text-xl font-semibold mb-4">Stay Updated</h3>
         <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-          Your daily source for cutting-edge insights in artificial intelligence, innovative design, 
-          and revolutionary construction technologies. We curate and rewrite the most important 
+          Your daily source for cutting-edge insights in AI, finance, marketing, branding, operations, sales, and e-commerce. We curate and rewrite the most important 
           stories shaping tomorrow's world.
         </p>
         
@@ -103,7 +110,7 @@ export function Sidebar() {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground">Categories</span>
-            <span className="font-bold text-lg">3</span>
+            <span className="font-bold text-lg">7</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground">Active Readers</span>

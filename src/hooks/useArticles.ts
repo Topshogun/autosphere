@@ -8,7 +8,7 @@ export type Article = Database['public']['Tables']['articles']['Row'] & {
 };
 
 interface UseArticlesOptions {
-  category?: 'AI' | 'Design' | 'Construction';
+  category?: 'AI' | 'Finance & Accounting' | 'Content Creation & Marketing' | 'Personal Branding & Thought Leadership' | 'Operations & Productivity' | 'Sales & Customer Relations' | 'E-commerce & Retail';
   limit?: number;
   realtime?: boolean;
 }
@@ -147,8 +147,12 @@ export function useArticles(options: UseArticlesOptions = {}) {
 function getDefaultImageForCategory(category: string): string {
   const imageMap = {
     'AI': 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'Design': 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'Construction': 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Finance & Accounting': 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Content Creation & Marketing': 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Personal Branding & Thought Leadership': 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Operations & Productivity': 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Sales & Customer Relations': 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'E-commerce & Retail': 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
   };
   return imageMap[category] || imageMap['AI'];
 }

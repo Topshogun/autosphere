@@ -45,14 +45,22 @@ export function CategoryPage({ darkMode, toggleDarkMode }: CategoryPageProps) {
 
   const categoryColors = {
     AI: 'from-blue-500 to-purple-600',
-    Design: 'from-green-500 to-teal-500',
-    Construction: 'from-orange-500 to-red-500'
+    'Finance & Accounting': 'from-green-500 to-emerald-600',
+    'Content Creation & Marketing': 'from-pink-500 to-rose-600',
+    'Personal Branding & Thought Leadership': 'from-purple-500 to-indigo-600',
+    'Operations & Productivity': 'from-orange-500 to-amber-600',
+    'Sales & Customer Relations': 'from-cyan-500 to-blue-600',
+    'E-commerce & Retail': 'from-red-500 to-pink-600'
   };
 
   const categoryDescriptions = {
     AI: 'Discover the latest breakthroughs in artificial intelligence, machine learning, and cognitive computing that are reshaping our world.',
-    Design: 'Explore innovative design principles, sustainable architecture, and creative solutions that define the future of human-centered design.',
-    Construction: 'Stay updated on revolutionary construction technologies, smart building materials, and automation transforming the industry.'
+    'Finance & Accounting': 'Stay informed about financial strategies, accounting innovations, and fintech solutions that drive business success.',
+    'Content Creation & Marketing': 'Explore cutting-edge content strategies, marketing automation, and creative techniques that engage audiences.',
+    'Personal Branding & Thought Leadership': 'Learn how to build your personal brand, establish thought leadership, and create meaningful professional impact.',
+    'Operations & Productivity': 'Discover tools, systems, and methodologies that streamline operations and boost productivity across organizations.',
+    'Sales & Customer Relations': 'Master sales techniques, CRM strategies, and customer relationship management for sustainable business growth.',
+    'E-commerce & Retail': 'Navigate the evolving landscape of online commerce, retail technology, and digital marketplace strategies.'
   };
 
   return (

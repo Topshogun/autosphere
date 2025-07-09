@@ -19,7 +19,7 @@ export type Database = {
           content: string;
           summary: string | null;
           author: string;
-          category: 'AI' | 'Design' | 'Construction';
+          category: 'AI' | 'Finance & Accounting' | 'Content Creation & Marketing' | 'Personal Branding & Thought Leadership' | 'Operations & Productivity' | 'Sales & Customer Relations' | 'E-commerce & Retail';
           image_url: string | null;
           slug: string;
           published_date: string;
@@ -32,7 +32,7 @@ export type Database = {
           content: string;
           summary?: string | null;
           author: string;
-          category: 'AI' | 'Design' | 'Construction';
+          category: 'AI' | 'Finance & Accounting' | 'Content Creation & Marketing' | 'Personal Branding & Thought Leadership' | 'Operations & Productivity' | 'Sales & Customer Relations' | 'E-commerce & Retail';
           image_url?: string | null;
           slug?: string;
           published_date: string;
@@ -45,7 +45,7 @@ export type Database = {
           content?: string;
           summary?: string | null;
           author?: string;
-          category?: 'AI' | 'Design' | 'Construction';
+          category?: 'AI' | 'Finance & Accounting' | 'Content Creation & Marketing' | 'Personal Branding & Thought Leadership' | 'Operations & Productivity' | 'Sales & Customer Relations' | 'E-commerce & Retail';
           image_url?: string | null;
           slug?: string;
           published_date?: string;

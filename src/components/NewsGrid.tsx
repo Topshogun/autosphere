@@ -15,7 +15,7 @@ export function NewsGrid() {
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">Today's Highlights</h2>
-          <p className="text-muted-foreground">Curated stories from AI, Design, and Construction</p>
+          <p className="text-muted-foreground">Curated stories from AI, Finance, Marketing, Branding, Operations, Sales, and E-commerce</p>
         </div>
         
         <Button
@@ -79,7 +79,7 @@ export function NewsGrid() {
           </div>
           <h3 className="text-xl font-semibold mb-2">No Articles Available</h3>
           <p className="text-muted-foreground mb-6">
-            Check back soon for the latest updates in AI, Design, and Construction.
+            Check back soon for the latest updates across all our categories.
           </p>
           <Button onClick={refreshArticles} variant="outline">
             Check for Updates

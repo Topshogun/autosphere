@@ -20,8 +20,12 @@ export function SubscriptionForm({
   const [email, setEmail] = useState('');
   const [preferences, setPreferences] = useState({
     ai: true,
-    design: true,
-    construction: true,
+    finance: true,
+    content: true,
+    branding: true,
+    operations: true,
+    sales: true,
+    ecommerce: true,
     weekly_digest: true,
     breaking_news: true,
   });
@@ -102,20 +106,56 @@ export function SubscriptionForm({
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
-                  id="design"
-                  checked={preferences.design}
-                  onChange={(e) => handlePreferenceChange('design', e.target.checked)}
+                  id="finance"
+                  checked={preferences.finance}
+                  onChange={(e) => handlePreferenceChange('finance', e.target.checked)}
                 />
-                <Label htmlFor="design" className="text-sm">Design & Innovation</Label>
+                <Label htmlFor="finance" className="text-sm">Finance & Accounting</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
-                  id="construction"
-                  checked={preferences.construction}
-                  onChange={(e) => handlePreferenceChange('construction', e.target.checked)}
+                  id="content"
+                  checked={preferences.content}
+                  onChange={(e) => handlePreferenceChange('content', e.target.checked)}
                 />
-                <Label htmlFor="construction" className="text-sm">Construction & Engineering</Label>
+                <Label htmlFor="content" className="text-sm">Content Creation & Marketing</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="branding"
+                  checked={preferences.branding}
+                  onChange={(e) => handlePreferenceChange('branding', e.target.checked)}
+                />
+                <Label htmlFor="branding" className="text-sm">Personal Branding & Thought Leadership</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="operations"
+                  checked={preferences.operations}
+                  onChange={(e) => handlePreferenceChange('operations', e.target.checked)}
+                />
+                <Label htmlFor="operations" className="text-sm">Operations & Productivity</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="sales"
+                  checked={preferences.sales}
+                  onChange={(e) => handlePreferenceChange('sales', e.target.checked)}
+                />
+                <Label htmlFor="sales" className="text-sm">Sales & Customer Relations</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="ecommerce"
+                  checked={preferences.ecommerce}
+                  onChange={(e) => handlePreferenceChange('ecommerce', e.target.checked)}
+                />
+                <Label htmlFor="ecommerce" className="text-sm">E-commerce & Retail</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <input

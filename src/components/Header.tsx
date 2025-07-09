@@ -16,8 +16,12 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'AI', path: '/category/AI' },
-    { name: 'Design', path: '/category/Design' },
-    { name: 'Construction', path: '/category/Construction' }
+    { name: 'Finance', path: '/category/Finance & Accounting' },
+    { name: 'Content', path: '/category/Content Creation & Marketing' },
+    { name: 'Branding', path: '/category/Personal Branding & Thought Leadership' },
+    { name: 'Operations', path: '/category/Operations & Productivity' },
+    { name: 'Sales', path: '/category/Sales & Customer Relations' },
+    { name: 'E-commerce', path: '/category/E-commerce & Retail' }
   ];
 
   const isActive = (path: string) => {

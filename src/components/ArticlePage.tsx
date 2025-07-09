@@ -253,10 +253,18 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
     switch(category) {
       case 'AI': 
         return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
-      case 'Design': 
+      case 'Finance & Accounting': 
         return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
-      case 'Construction': 
+      case 'Content Creation & Marketing': 
+        return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300';
+      case 'Personal Branding & Thought Leadership': 
+        return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300';
+      case 'Operations & Productivity': 
         return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300';
+      case 'Sales & Customer Relations': 
+        return 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300';
+      case 'E-commerce & Retail': 
+        return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300';
       default: 
         return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300';
     }

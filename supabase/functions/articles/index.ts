@@ -4,7 +4,7 @@ interface ArticlePayload {
   title: string;
   content: string;
   author: string;
-  category: 'AI' | 'Design' | 'Construction';
+  category: 'AI' | 'Finance & Accounting' | 'Content Creation & Marketing' | 'Personal Branding & Thought Leadership' | 'Operations & Productivity' | 'Sales & Customer Relations' | 'E-commerce & Retail';
   published_date: string;
   image_url?: string;
   summary?: string;
@@ -47,7 +47,17 @@ Deno.serve(async (req: Request) => {
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1);
       
-      if (category && ['AI', 'Design', 'Construction'].includes(category)) {
+      const validCategories = [
+        'AI',
+        'Finance & Accounting',
+        'Content Creation & Marketing',
+        'Personal Branding & Thought Leadership',
+        'Operations & Productivity',
+        'Sales & Customer Relations',
+        'E-commerce & Retail'
+      ];
+      
+      if (category && validCategories.includes(category)) {
         query = query.eq('category', category);
       }
       
@@ -102,7 +112,15 @@ Deno.serve(async (req: Request) => {
       }
 
       // Validate category
-      const validCategories = ['AI', 'Design', 'Construction'];
+      const validCategories = [
+        'AI',
+        'Finance & Accounting',
+        'Content Creation & Marketing',
+        'Personal Branding & Thought Leadership',
+        'Operations & Productivity',
+        'Sales & Customer Relations',
+        'E-commerce & Retail'
+      ];
       if (!validCategories.includes(articleData.category)) {
         return new Response(
           JSON.stringify({ 
@@ -217,8 +235,12 @@ Deno.serve(async (req: Request) => {
 function getDefaultImageForCategory(category: string): string {
   const imageMap = {
     'AI': 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'Design': 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'Construction': 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Finance & Accounting': 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Content Creation & Marketing': 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Personal Branding & Thought Leadership': 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Operations & Productivity': 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'Sales & Customer Relations': 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'E-commerce & Retail': 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
   };
   return imageMap[category] || imageMap['AI'];
 }
