@@ -95,7 +95,7 @@ Deno.serve(async (req: Request) => {
           return new Response(
             JSON.stringify({
               success: true,
-              message: "Welcome back! Your subscription has been reactivated.",
+              message: "Successfully subscribed! Welcome to The Apex Index.",
               reactivated: true
             }),
             {
