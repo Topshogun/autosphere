@@ -11,6 +11,7 @@ import { NotFound } from './components/NotFound';
 import { UnsubscribePage } from './components/UnsubscribePage';
 import { NewsletterBanner } from './components/NewsletterBanner';
 import { AdminRoute } from './components/admin/AdminRoute';
+import { ScrollToTop } from './components/ScrollToTop';
 import './App.css';
 
 function HomePage({ darkMode, toggleDarkMode }: { darkMode: boolean; toggleDarkMode: () => void }) {
@@ -86,6 +87,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
         <Routes>
           <Route 
