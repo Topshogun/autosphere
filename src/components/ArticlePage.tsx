@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Button } from '@/components/ui/button';
@@ -35,7 +36,7 @@ International cooperation in AI security research and development is becoming in
 As we look to the future, the continued evolution of AI technology will undoubtedly reshape the security landscape. Organizations and nations that successfully navigate this transformation will be better positioned to protect their interests and contribute to global stability in an increasingly complex world.`,
     summary: "An in-depth exploration of how artificial intelligence is revolutionizing global security practices, examining both the opportunities and challenges presented by AI integration in defense systems.",
     author: "Dr. Sarah Mitchell",
-    category: "AI",
+    category: "AI" as const,
     image_url: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200",
     slug: "exploring-the-future-ais-transformative-role-in-global-security-at-the-marshall-center",
     published_date: new Date().toISOString(),
@@ -54,7 +55,7 @@ The integration of ML in electronic health records is streamlining patient care 
 However, the implementation of ML in healthcare also raises important questions about data privacy, algorithmic bias, and the need for regulatory frameworks to ensure patient safety and ethical use of these powerful technologies.`,
     summary: "Exploring how machine learning is transforming healthcare through improved diagnostics, personalized medicine, and predictive analytics.",
     author: "Dr. Emily Chen",
-    category: "AI",
+    category: "AI" as const,
     image_url: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200",
     slug: "future-of-machine-learning-in-healthcare",
     published_date: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
@@ -73,7 +74,7 @@ Biophilic design principles are gaining traction, incorporating natural elements
 The circular economy concept is influencing architectural practices, promoting the reuse and recycling of building materials. This shift reduces waste and minimizes the environmental footprint of construction projects.`,
     summary: "An overview of sustainable design principles shaping modern architecture and their impact on environmental conservation.",
     author: "Michael Rodriguez",
-    category: "Design",
+    category: "Finance & Accounting" as const,
     image_url: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
     slug: "sustainable-design-principles-modern-architecture",
     published_date: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
@@ -415,14 +416,65 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
               )}
 
               {/* Article Content */}
-              <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
-                <div className="space-y-6 text-foreground leading-relaxed">
-                  {article.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-lg leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+              <div className="prose prose-lg dark:prose-invert max-w-none mb-8 text-foreground">
+                <ReactMarkdown
+                  components={{
+                    h1: ({ children }) => (
+                      <h1 className="text-3xl font-bold mt-8 mb-4 text-foreground">{children}</h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className="text-2xl font-semibold mt-6 mb-3 text-foreground">{children}</h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="text-xl font-medium mt-5 mb-2 text-foreground">{children}</h3>
+                    ),
+                    p: ({ children }) => (
+                      <p className="text-lg leading-relaxed mb-6 text-foreground">{children}</p>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc list-inside mb-6 space-y-2 text-foreground">{children}</ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal list-inside mb-6 space-y-2 text-foreground">{children}</ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="text-lg leading-relaxed text-foreground">{children}</li>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-muted/30 rounded-r-lg text-foreground italic">
+                        {children}
+                      </blockquote>
+                    ),
+                    code: ({ children }) => (
+                      <code className="bg-muted px-2 py-1 rounded text-sm font-mono text-foreground">
+                        {children}
+                      </code>
+                    ),
+                    pre: ({ children }) => (
+                      <pre className="bg-muted p-4 rounded-lg overflow-x-auto mb-6 text-foreground">
+                        {children}
+                      </pre>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className="font-semibold text-foreground">{children}</strong>
+                    ),
+                    em: ({ children }) => (
+                      <em className="italic text-foreground">{children}</em>
+                    ),
+                    a: ({ href, children }) => (
+                      <a 
+                        href={href} 
+                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  }}
+                >
+                  {article.content}
+                </ReactMarkdown>
               </div>
 
               {/* Article Footer */}
