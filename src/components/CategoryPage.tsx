@@ -12,14 +12,37 @@ interface CategoryPageProps {
   toggleDarkMode: () => void;
 }
 
+// Helper function to decode URL-encoded category names
+const decodeCategoryName = (encodedCategory: string): string => {
+  return decodeURIComponent(encodedCategory);
+};
+
+// Helper function to check if a category is valid
+const isValidCategory = (category: string): boolean => {
+  const validCategories = [
+    'AI',
+    'Finance & Accounting',
+    'Content Creation & Marketing',
+    'Personal Branding & Thought Leadership',
+    'Operations & Productivity',
+    'Sales & Customer Relations',
+    'E-commerce & Retail'
+  ];
+  return validCategories.includes(category);
+};
+
 export function CategoryPage({ darkMode, toggleDarkMode }: CategoryPageProps) {
-  const { category } = useParams<{ category: 'AI' | 'Design' | 'Construction' }>();
+  const { category: encodedCategory } = useParams<{ category: string }>();
+  
+  // Decode the category name from URL
+  const category = encodedCategory ? decodeCategoryName(encodedCategory) : '';
+  
   const { articles, loading, error, refreshArticles } = useArticles({ 
-    category: category as 'AI' | 'Design' | 'Construction',
+    category: category as any,
     limit: 12 
   });
 
-  if (!category || !['AI', 'Design', 'Construction'].includes(category)) {
+  if (!category || !isValidCategory(category)) {
     return (
       <div className="min-h-screen bg-background text-foreground">
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />

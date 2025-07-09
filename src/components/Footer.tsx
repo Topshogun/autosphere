@@ -21,13 +21,13 @@ export function Footer() {
               <Link to="/category/AI" className="hover:text-foreground transition-colors duration-200">
                 AI
               </Link>
-              <Link to="/category/Finance & Accounting" className="hover:text-foreground transition-colors duration-200">
+              <Link to={`/category/${encodeURIComponent('Finance & Accounting')}`} className="hover:text-foreground transition-colors duration-200">
                 Finance
               </Link>
-              <Link to="/category/Content Creation & Marketing" className="hover:text-foreground transition-colors duration-200">
+              <Link to={`/category/${encodeURIComponent('Content Creation & Marketing')}`} className="hover:text-foreground transition-colors duration-200">
                 Content
               </Link>
-              <Link to="/category/E-commerce & Retail" className="hover:text-foreground transition-colors duration-200">
+              <Link to={`/category/${encodeURIComponent('E-commerce & Retail')}`} className="hover:text-foreground transition-colors duration-200">
                 E-commerce
               </Link>
             </nav>

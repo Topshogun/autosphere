@@ -24,12 +24,12 @@ const trendingTags = [
 
 const categories = [
   { name: 'AI', path: '/category/AI', color: 'from-blue-500 to-purple-600' },
-  { name: 'Finance & Accounting', path: '/category/Finance & Accounting', color: 'from-green-500 to-emerald-600' },
-  { name: 'Content Creation & Marketing', path: '/category/Content Creation & Marketing', color: 'from-pink-500 to-rose-600' },
-  { name: 'Personal Branding & Thought Leadership', path: '/category/Personal Branding & Thought Leadership', color: 'from-purple-500 to-indigo-600' },
-  { name: 'Operations & Productivity', path: '/category/Operations & Productivity', color: 'from-orange-500 to-amber-600' },
-  { name: 'Sales & Customer Relations', path: '/category/Sales & Customer Relations', color: 'from-cyan-500 to-blue-600' },
-  { name: 'E-commerce & Retail', path: '/category/E-commerce & Retail', color: 'from-red-500 to-pink-600' }
+  { name: 'Finance & Accounting', path: `/category/${encodeURIComponent('Finance & Accounting')}`, color: 'from-green-500 to-emerald-600' },
+  { name: 'Content Creation & Marketing', path: `/category/${encodeURIComponent('Content Creation & Marketing')}`, color: 'from-pink-500 to-rose-600' },
+  { name: 'Personal Branding & Thought Leadership', path: `/category/${encodeURIComponent('Personal Branding & Thought Leadership')}`, color: 'from-purple-500 to-indigo-600' },
+  { name: 'Operations & Productivity', path: `/category/${encodeURIComponent('Operations & Productivity')}`, color: 'from-orange-500 to-amber-600' },
+  { name: 'Sales & Customer Relations', path: `/category/${encodeURIComponent('Sales & Customer Relations')}`, color: 'from-cyan-500 to-blue-600' },
+  { name: 'E-commerce & Retail', path: `/category/${encodeURIComponent('E-commerce & Retail')}`, color: 'from-red-500 to-pink-600' }
 ];
 
 export function Sidebar() {
