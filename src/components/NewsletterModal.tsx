@@ -52,8 +52,8 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
             </Button>
           </div>
           <DialogDescription className="text-left">
-            Get the latest insights in AI, Design, and Construction delivered to your inbox. 
-            Join thousands of forward-thinking professionals who trust AutoSphere.
+            Get the latest insights in AI, Finance, Marketing, Branding, Operations, Sales, and E-commerce delivered to your inbox. 
+            Join thousands of forward-thinking professionals who trust The Apex Index.
           </DialogDescription>
         </DialogHeader>
 

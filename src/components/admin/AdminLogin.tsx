@@ -33,6 +33,7 @@ export function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
             <Shield className="h-6 w-6 text-white" />
           </div>
           <CardTitle className="text-2xl font-bold">AutoSphere Admin</CardTitle>
+          <CardTitle className="text-2xl font-bold">The Apex Index Admin</CardTitle>
           <CardDescription>
             Sign in to access the admin dashboard
           </CardDescription>

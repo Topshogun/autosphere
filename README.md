@@ -1,6 +1,6 @@
-# AutoSphere - Futuristic News Website
+# The Apex Index - Futuristic News Website
 
-A sleek, modern news website that delivers daily rewritten news in AI, Design, and Construction.
+A sleek, modern news website that delivers daily rewritten news in AI, Finance, Marketing, Branding, Operations, Sales, and E-commerce.
 
 ## Features
 
@@ -26,7 +26,7 @@ Accepts new articles from external automation tools (like n8n).
   "title": "Article Title",
   "content": "Full article content...",
   "author": "Author Name",
-  "category": "AI" | "Design" | "Construction",
+  "category": "AI" | "Finance & Accounting" | "Content Creation & Marketing" | "Personal Branding & Thought Leadership" | "Operations & Productivity" | "Sales & Customer Relations" | "E-commerce & Retail",
   "published_date": "2025-01-27T10:00:00Z",
   "image_url": "https://example.com/image.jpg",
   "summary": "Optional article summary"
@@ -37,7 +37,7 @@ Accepts new articles from external automation tools (like n8n).
 - `title` (string): Article headline
 - `content` (string): Full article text
 - `author` (string): Author name
-- `category` (string): Must be one of "AI", "Design", or "Construction"
+- `category` (string): Must be one of the valid categories listed above
 - `published_date` (string): ISO 8601 timestamp
 
 **Optional Fields**:
@@ -76,7 +76,7 @@ Retrieve articles with pagination and filtering.
 **Query Parameters**:
 - `page` (number): Page number (default: 1)
 - `limit` (number): Articles per page (default: 9)
-- `category` (string): Filter by category ("AI", "Design", "Construction")
+- `category` (string): Filter by category (any of the valid categories)
 
 **Response Format**:
 ```json
@@ -104,7 +104,7 @@ To integrate with n8n workflows:
      "title": "Your Article Title",
      "content": "Full article content here...",
      "author": "Author Name",
-     "category": "AI",
+     "category": "AI", // or any other valid category
      "published_date": "2025-01-27T10:00:00Z",
      "image_url": "https://example.com/optional-image.jpg"
    }
@@ -122,6 +122,7 @@ The application uses Supabase with the following table structure:
 - `summary` (TEXT) - Auto-generated if not provided
 - `author` (TEXT NOT NULL)
 - `category` (TEXT NOT NULL) - CHECK constraint for AI/Design/Construction
+- `category` (TEXT NOT NULL) - CHECK constraint for all valid categories
 - `image_url` (TEXT) - Optional image URL
 - `slug` (TEXT NOT NULL UNIQUE) - Auto-generated from title
 - `published_date` (TIMESTAMPTZ NOT NULL)

@@ -9,9 +9,9 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <Link to="/" className="flex items-center space-x-2 mb-4 md:mb-0 hover:opacity-80 transition-opacity">
               <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-teal-500 rounded-md flex items-center justify-center">
-                <span className="text-white font-bold text-xs">AS</span>
+                <span className="text-white font-bold text-xs">AI</span>
               </div>
-              <span className="font-semibold text-muted-foreground">AutoSphere</span>
+              <span className="font-semibold text-muted-foreground">The Apex Index</span>
             </Link>
             
             <nav className="flex space-x-6 text-sm text-muted-foreground">

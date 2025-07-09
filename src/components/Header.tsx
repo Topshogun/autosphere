@@ -43,7 +43,7 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                   <span className="text-white font-bold text-sm">AS</span>
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">
-                  AutoSphere
+                  The Apex Index
                 </span>
               </Link>
             </div>

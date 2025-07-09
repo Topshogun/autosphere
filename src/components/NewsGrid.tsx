@@ -75,7 +75,7 @@ export function NewsGrid() {
       ) : (
         <div className="text-center py-12">
           <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center opacity-20">
-            <span className="text-white font-bold text-xl">AS</span>
+            <span className="text-white font-bold text-xl">AI</span>
           </div>
           <h3 className="text-xl font-semibold mb-2">No Articles Available</h3>
           <p className="text-muted-foreground mb-6">

@@ -43,7 +43,7 @@ export function NotFound({ darkMode, toggleDarkMode }: NotFoundProps) {
             {/* Decorative Element */}
             <div className="mt-16 opacity-20">
               <div className="w-32 h-32 mx-auto bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">AS</span>
+                <span className="text-white font-bold text-2xl">AI</span>
               </div>
             </div>
           </div>
