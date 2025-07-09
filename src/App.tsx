@@ -23,10 +23,43 @@ function HomePage({ darkMode, toggleDarkMode }: { darkMode: boolean; toggleDarkM
         {/* Hero Section */}
         <section className="w-full px-4 sm:px-6 lg:px-8 py-8">
           <div className="max-w-[1200px] mx-auto">
-            <div className="mb-6">
-              <h1 className="text-2xl md:text-3xl font-bold mb-2">Top Trends</h1>
-              <p className="text-muted-foreground">The biggest stories shaping our future</p>
+            {/* Hero Heading Section */}
+            <div className="text-center mb-12">
+              <div className="relative inline-block">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent animate-gradient-x">
+                    The Signal
+                  </span>
+                  <br />
+                  <span className="text-foreground">in the Noise</span>
+                </h1>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-2 -right-6 w-6 h-6 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full opacity-30 animate-pulse delay-1000"></div>
+              </div>
+              
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+                Uncovering the trends that truly matter for your business.
+              </p>
+              
+              {/* Subtle accent line */}
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto rounded-full mb-8"></div>
+              
+              {/* Category indicators */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                  AI & Technology
+                </span>
+                <span className="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                  Finance & Strategy
+                </span>
+                <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
+                  Marketing & Growth
+                </span>
+              </div>
             </div>
+            
             <HeroCarousel />
           </div>
         </section>

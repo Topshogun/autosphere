@@ -20,6 +20,22 @@
   display: none;
 }
 
+/* Gradient animation for hero text */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 8s ease infinite;
+}
+
 /* Custom gradient text animation */
 @keyframes gradient-flow {
   0%, 100% {
