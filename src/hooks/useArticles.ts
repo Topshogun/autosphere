@@ -24,6 +24,17 @@ export function useArticles(options: UseArticlesOptions = {}) {
       setLoading(true);
       setError(null);
 
+      // Test connection first
+      const { data: testData, error: testError } = await supabase
+        .from('articles')
+        .select('count')
+        .limit(1);
+
+      if (testError) {
+        console.error('Supabase connection test failed:', testError);
+        throw new Error(`Database connection failed: ${testError.message}`);
+      }
+
       let query = supabase
         .from('articles')
         .select('*')
@@ -37,20 +48,25 @@ export function useArticles(options: UseArticlesOptions = {}) {
       const { data, error: fetchError } = await query;
 
       if (fetchError) {
-        throw fetchError;
+        console.error('Error fetching articles:', fetchError);
+        throw new Error(`Failed to fetch articles: ${fetchError.message}`);
       }
 
       // Transform data to match existing interface
       const transformedArticles: Article[] = (data || []).map(article => ({
         ...article,
         image: article.image_url || getDefaultImageForCategory(article.category),
-        publishTime: formatPublishTime(article.created_at),
+        publishTime: formatPublishTime(article.created_at || new Date().toISOString()),
       }));
 
       setArticles(transformedArticles);
     } catch (err) {
-      console.error('Error fetching articles:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch articles');
+      console.error('Error in fetchArticles:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch articles';
+      setError(errorMessage);
+      
+      // Set empty articles array on error to prevent UI issues
+      setArticles([]);
     } finally {
       setLoading(false);
     }
@@ -76,7 +92,7 @@ export function useArticles(options: UseArticlesOptions = {}) {
       const transformedArticle: Article = {
         ...data,
         image: data.image_url || getDefaultImageForCategory(data.category),
-        publishTime: formatPublishTime(data.created_at),
+        publishTime: formatPublishTime(data.created_at || new Date().toISOString()),
       };
 
       setArticles(prev => [transformedArticle, ...prev.slice(0, limit - 1)]);
@@ -120,7 +136,7 @@ export function useArticles(options: UseArticlesOptions = {}) {
           const transformedArticle: Article = {
             ...newArticle,
             image: newArticle.image_url || getDefaultImageForCategory(newArticle.category),
-            publishTime: formatPublishTime(newArticle.created_at),
+            publishTime: formatPublishTime(newArticle.created_at || new Date().toISOString()),
           };
 
           setArticles(prev => [transformedArticle, ...prev.slice(0, limit - 1)]);
@@ -154,7 +170,7 @@ function getDefaultImageForCategory(category: string): string {
     'Sales & Customer Relations': 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
     'E-commerce & Retail': 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
   };
-  return imageMap[category] || imageMap['AI'];
+  return imageMap[category as keyof typeof imageMap] || imageMap['AI'];
 }
 
 function formatPublishTime(dateString: string): string {
