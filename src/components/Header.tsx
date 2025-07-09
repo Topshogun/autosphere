@@ -68,16 +68,24 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
             {/* Dark Mode Toggle */}
             <div className="flex items-center space-x-4">
               <Button
-                variant="ghost"
-                size="icon"
+                variant="outline"
+                size="sm"
                 onClick={toggleDarkMode}
-                className="rounded-full"
+                className="relative overflow-hidden transition-all duration-300 hover:scale-105 border-border/50 hover:border-border"
+                aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
               >
-                {darkMode ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
+                <div className="flex items-center space-x-2">
+                  <div className="relative">
+                    {darkMode ? (
+                      <Sun className="h-4 w-4 text-amber-500 transition-all duration-300" />
+                    ) : (
+                      <Moon className="h-4 w-4 text-slate-600 dark:text-slate-300 transition-all duration-300" />
+                    )}
+                  </div>
+                  <span className="text-xs font-medium hidden sm:inline">
+                    {darkMode ? 'Light' : 'Dark'}
+                  </span>
+                </div>
               </Button>
 
               {/* Mobile Menu Button */}
