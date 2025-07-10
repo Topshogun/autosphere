@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { X, Twitter, Facebook, Linkedin, Link, Check } from 'lucide-react';
+import { X as CloseIcon, Twitter, Facebook, Linkedin, Link, Check } from 'lucide-react';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -45,6 +45,12 @@ export function ShareModal({ isOpen, onClose, title, url, description }: ShareMo
     window.open(twitterUrl, '_blank', 'width=600,height=400');
   };
 
+  const shareToX = () => {
+    const text = `${title} ${url}`;
+    const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    window.open(xUrl, '_blank', 'width=600,height=400');
+  };
+
   const shareToFacebook = () => {
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`;
     window.open(facebookUrl, '_blank', 'width=600,height=400');
@@ -69,7 +75,7 @@ export function ShareModal({ isOpen, onClose, title, url, description }: ShareMo
               onClick={onClose}
               className="h-6 w-6 rounded-full"
             >
-              <X className="h-4 w-4" />
+              <CloseIcon className="h-4 w-4" />
             </Button>
           </div>
           <DialogDescription className="text-left">
@@ -82,11 +88,11 @@ export function ShareModal({ isOpen, onClose, title, url, description }: ShareMo
           <div className="grid grid-cols-2 gap-3">
             <Button
               variant="outline"
-              onClick={shareToTwitter}
-              className="flex items-center space-x-2 h-12 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 dark:hover:bg-blue-900/20 dark:hover:border-blue-600 dark:hover:text-blue-400 transition-colors"
+              onClick={shareToX}
+              className="flex items-center space-x-2 h-12 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:hover:bg-gray-900/20 dark:hover:border-gray-600 dark:hover:text-gray-100 transition-colors"
             >
-              <Twitter className="h-5 w-5" />
-              <span>Twitter</span>
+              <CloseIcon className="h-5 w-5" />
+              <span>X</span>
             </Button>
 
             <Button
