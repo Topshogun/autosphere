@@ -359,7 +359,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                 {/* Action Buttons */}
                 <div className="flex items-center space-x-4">
                   <Button
-                    variant="outline"
+                    variant="share"
                     size="sm"
                     onClick={handleShare}
                     className="share-article-btn flex items-center space-x-2"
@@ -368,7 +368,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                     <span>Share</span>
                   </Button>
                   <Button
-                    variant="outline"
+                    variant="share"
                     size="sm"
                     className="share-article-btn flex items-center space-x-2"
                   >
@@ -474,10 +474,10 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Button
-                      variant="outline"
+                      variant="share"
                       size="sm"
                       onClick={handleShare}
-                      className="flex items-center space-x-2"
+                      className="share-article-btn flex items-center space-x-2"
                     >
                       <Share2 className="h-4 w-4" />
                       <span>Share Article</span>
