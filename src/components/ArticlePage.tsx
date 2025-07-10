@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { ShareModal } from './ShareModal';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Clock, User, Share2, Bookmark, Eye, Calendar } from 'lucide-react';
@@ -117,6 +118,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -202,21 +204,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
   }, [id, slug]);
 
   const handleShare = async () => {
-    if (navigator.share && article) {
-      try {
-        await navigator.share({
-          title: article.title,
-          text: article.summary || '',
-          url: window.location.href,
-        });
-      } catch (err) {
-        // Fallback to copying URL
-        navigator.clipboard.writeText(window.location.href);
-      }
-    } else {
-      // Fallback to copying URL
-      navigator.clipboard.writeText(window.location.href);
-    }
+    setShowShareModal(true);
   };
 
   const formatPublishTime = (dateString: string): string => {
@@ -503,6 +491,17 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
       </main>
 
       <Footer />
+      
+      {/* Share Modal */}
+      {article && (
+        <ShareModal
+          isOpen={showShareModal}
+          onClose={() => setShowShareModal(false)}
+          title={article.title}
+          url={window.location.href}
+          description={article.summary || ''}
+        />
+      )}
     </div>
   );
 }
