@@ -9,6 +9,7 @@ import { ArticlePage } from './components/ArticlePage';
 import { CategoryPage } from './components/CategoryPage';
 import { NotFound } from './components/NotFound';
 import { UnsubscribePage } from './components/UnsubscribePage';
+import { AboutPage } from './components/AboutPage';
 import { NewsletterBanner } from './components/NewsletterBanner';
 import { AdminRoute } from './components/admin/AdminRoute';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -142,6 +143,10 @@ function App() {
           <Route 
             path="/unsubscribe" 
             element={<UnsubscribePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} 
+          />
+          <Route 
+            path="/about" 
+            element={<AboutPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} 
           />
           <Route 
             path="/admin/dashboard" 
