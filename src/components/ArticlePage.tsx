@@ -493,6 +493,15 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                       <Share2 className="h-4 w-4" />
                       <span>Share Article</span>
                     </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShowNewsletterModal(true)}
+                      className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200"
+                    >
+                      <Mail className="h-4 w-4" />
+                      <span>Subscribe</span>
+                    </Button>
                   </div>
                 </div>
               </footer>
