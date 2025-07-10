@@ -4,9 +4,10 @@ import ReactMarkdown from 'react-markdown';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { ShareModal } from './ShareModal';
+import { NewsletterModal } from './NewsletterModal';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, Clock, User, Share2, Bookmark, Eye, Calendar } from 'lucide-react';
+import { ArrowLeft, Clock, User, Share2, Bookmark, Eye, Calendar, Mail } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
 
@@ -119,6 +120,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -368,6 +370,15 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                     <span>Share</span>
                   </Button>
                   <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowNewsletterModal(true)}
+                    className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>Subscribe</span>
+                  </Button>
+                  <Button
                     variant="share"
                     size="sm"
                     className="share-article-btn flex items-center space-x-2"
@@ -502,6 +513,12 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
           description={article.summary || ''}
         />
       )}
+      
+      {/* Newsletter Modal */}
+      <NewsletterModal
+        isOpen={showNewsletterModal}
+        onClose={() => setShowNewsletterModal(false)}
+      />
     </div>
   );
 }
