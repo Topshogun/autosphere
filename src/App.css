@@ -181,135 +181,212 @@ a, button {
 /* Share Article Button Styling */
 .share-article-btn {
   position: relative;
-  background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
-  border: 1px solid #333;
+  background: linear-gradient(135deg, #121212 0%, #000000 50%, #121212 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
   
-  /* Pulsating glow effect */
+  /* Strong pulsating glow effect */
   box-shadow: 
-    0 0 20px rgba(59, 130, 246, 0.3),
-    0 0 40px rgba(59, 130, 246, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 0 30px rgba(96, 165, 250, 0.6),
+    0 0 60px rgba(96, 165, 250, 0.4),
+    0 0 90px rgba(96, 165, 250, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   
-  animation: pulse-glow 2s ease-in-out infinite alternate;
+  animation: continuous-pulse 2.5s ease-in-out infinite;
+}
+
+.share-article-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
 }
 
 .share-article-btn:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #2563eb 100%);
-  border-color: #3b82f6;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateY(-2px) scale(1.02);
   
-  /* Intensified glow on hover */
+  /* Dramatically intensified glow on hover */
   box-shadow: 
-    0 0 30px rgba(59, 130, 246, 0.6),
-    0 0 60px rgba(59, 130, 246, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 0 50px rgba(96, 165, 250, 0.9),
+    0 0 100px rgba(96, 165, 250, 0.6),
+    0 0 150px rgba(96, 165, 250, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   
-  animation: pulse-glow-intense 1s ease-in-out infinite alternate;
+  animation: intense-pulse 1.2s ease-in-out infinite;
+}
+
+.share-article-btn:hover::before {
+  left: 100%;
 }
 
 .share-article-btn:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(0.98);
   box-shadow: 
-    0 0 25px rgba(59, 130, 246, 0.5),
-    0 0 50px rgba(59, 130, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 0 40px rgba(96, 165, 250, 0.8),
+    0 0 80px rgba(96, 165, 250, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Pulsating glow animations */
-@keyframes pulse-glow {
+/* Continuous pulsating glow animations */
+@keyframes continuous-pulse {
   0% {
     box-shadow: 
-      0 0 20px rgba(59, 130, 246, 0.3),
-      0 0 40px rgba(59, 130, 246, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 0 30px rgba(96, 165, 250, 0.6),
+      0 0 60px rgba(96, 165, 250, 0.4),
+      0 0 90px rgba(96, 165, 250, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(96, 165, 250, 0.8),
+      0 0 80px rgba(96, 165, 250, 0.6),
+      0 0 120px rgba(96, 165, 250, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   }
   100% {
     box-shadow: 
-      0 0 25px rgba(59, 130, 246, 0.4),
-      0 0 50px rgba(59, 130, 246, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 0 30px rgba(96, 165, 250, 0.6),
+      0 0 60px rgba(96, 165, 250, 0.4),
+      0 0 90px rgba(96, 165, 250, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
-@keyframes pulse-glow-intense {
+@keyframes intense-pulse {
   0% {
     box-shadow: 
-      0 0 30px rgba(59, 130, 246, 0.6),
-      0 0 60px rgba(59, 130, 246, 0.3),
-      0 4px 20px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 0 50px rgba(96, 165, 250, 0.9),
+      0 0 100px rgba(96, 165, 250, 0.6),
+      0 0 150px rgba(96, 165, 250, 0.3),
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 70px rgba(96, 165, 250, 1),
+      0 0 140px rgba(96, 165, 250, 0.8),
+      0 0 200px rgba(96, 165, 250, 0.4),
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   100% {
     box-shadow: 
-      0 0 40px rgba(59, 130, 246, 0.8),
-      0 0 80px rgba(59, 130, 246, 0.4),
-      0 6px 25px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      0 0 50px rgba(96, 165, 250, 0.9),
+      0 0 100px rgba(96, 165, 250, 0.6),
+      0 0 150px rgba(96, 165, 250, 0.3),
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
 /* Dark mode adjustments for the share button */
 .dark .share-article-btn {
-  background: linear-gradient(135deg, #0f0f0f 0%, #000000 50%, #0f0f0f 100%);
-  border-color: #404040;
+  background: linear-gradient(135deg, #0a0a0a 0%, #000000 50%, #0a0a0a 100%);
+  border-color: rgba(255, 255, 255, 0.08);
   
   box-shadow: 
-    0 0 20px rgba(147, 51, 234, 0.3),
-    0 0 40px rgba(147, 51, 234, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 0 35px rgba(168, 85, 247, 0.7),
+    0 0 70px rgba(168, 85, 247, 0.5),
+    0 0 105px rgba(168, 85, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
   
-  animation: pulse-glow-purple 2s ease-in-out infinite alternate;
+  animation: continuous-pulse-purple 2.5s ease-in-out infinite;
 }
 
 .dark .share-article-btn:hover {
-  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #7c3aed 100%);
-  border-color: #8b5cf6;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #8b5cf6 100%);
+  border-color: rgba(168, 85, 247, 0.6);
   
   box-shadow: 
-    0 0 30px rgba(147, 51, 234, 0.6),
-    0 0 60px rgba(147, 51, 234, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 0 55px rgba(168, 85, 247, 1),
+    0 0 110px rgba(168, 85, 247, 0.7),
+    0 0 165px rgba(168, 85, 247, 0.4),
+    0 10px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   
-  animation: pulse-glow-purple-intense 1s ease-in-out infinite alternate;
+  animation: intense-pulse-purple 1.2s ease-in-out infinite;
 }
 
 /* Purple glow animations for dark mode */
-@keyframes pulse-glow-purple {
+@keyframes continuous-pulse-purple {
   0% {
     box-shadow: 
-      0 0 20px rgba(147, 51, 234, 0.3),
-      0 0 40px rgba(147, 51, 234, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      0 0 35px rgba(168, 85, 247, 0.7),
+      0 0 70px rgba(168, 85, 247, 0.5),
+      0 0 105px rgba(168, 85, 247, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 0 45px rgba(168, 85, 247, 0.9),
+      0 0 90px rgba(168, 85, 247, 0.7),
+      0 0 135px rgba(168, 85, 247, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
   }
   100% {
     box-shadow: 
-      0 0 25px rgba(147, 51, 234, 0.4),
-      0 0 50px rgba(147, 51, 234, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      0 0 35px rgba(168, 85, 247, 0.7),
+      0 0 70px rgba(168, 85, 247, 0.5),
+      0 0 105px rgba(168, 85, 247, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
   }
 }
 
-@keyframes pulse-glow-purple-intense {
+@keyframes intense-pulse-purple {
   0% {
     box-shadow: 
-      0 0 30px rgba(147, 51, 234, 0.6),
-      0 0 60px rgba(147, 51, 234, 0.3),
-      0 4px 20px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      0 0 55px rgba(168, 85, 247, 1),
+      0 0 110px rgba(168, 85, 247, 0.7),
+      0 0 165px rgba(168, 85, 247, 0.4),
+      0 10px 35px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 75px rgba(168, 85, 247, 1),
+      0 0 150px rgba(168, 85, 247, 0.9),
+      0 0 225px rgba(168, 85, 247, 0.5),
+      0 15px 45px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   }
   100% {
     box-shadow: 
-      0 0 40px rgba(147, 51, 234, 0.8),
-      0 0 80px rgba(147, 51, 234, 0.4),
-      0 6px 25px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 0 55px rgba(168, 85, 247, 1),
+      0 0 110px rgba(168, 85, 247, 0.7),
+      0 0 165px rgba(168, 85, 247, 0.4),
+      0 10px 35px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
