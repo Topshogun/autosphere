@@ -362,7 +362,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                     variant="outline"
                     size="sm"
                     onClick={handleShare}
-                    className="flex items-center space-x-2"
+                    className="share-article-btn flex items-center space-x-2 relative overflow-hidden bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white border-gray-700 hover:from-gray-800 hover:via-gray-900 hover:to-gray-800 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <Share2 className="h-4 w-4" />
                     <span>Share</span>
