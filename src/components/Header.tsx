@@ -66,10 +66,10 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md flex items-center space-x-1 ${
+                      className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md flex items-center space-x-1 border-0 bg-transparent hover:bg-muted/50 ${
                         isCategoryActive()
-                          ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/20'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                          ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30'
+                          : 'text-muted-foreground hover:text-foreground'
                       }`}
                     >
                       <span>Categories</span>
@@ -97,10 +97,10 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                 {/* About */}
                 <Link
                   to="/about"
-                  className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md ${
+                  className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-muted/50 ${
                     isActive('/about')
-                      ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/20'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30'
+                      : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   About
@@ -162,10 +162,10 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                         <Link
                           key={category.name}
                           to={category.path}
-                          className={`block font-medium transition-colors duration-200 px-3 py-2 rounded-md text-sm ${
+                          className={`block font-medium transition-colors duration-200 px-3 py-2 rounded-md text-sm hover:bg-muted/50 ${
                             isActive(category.path)
-                              ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/20'
-                              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                              ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30'
+                              : 'text-muted-foreground hover:text-foreground'
                           }`}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -178,10 +178,10 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                   {/* About in Mobile */}
                   <Link
                     to="/about"
-                    className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md ${
+                    className={`font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-muted/50 ${
                       isActive('/about')
-                        ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/20'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                        ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/30'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
