@@ -8,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Moon, Sun, Menu, X, ChevronDown, Mail } from 'lucide-react';
-import { NewsletterModal } from './NewsletterModal';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -17,7 +16,6 @@ interface HeaderProps {
 
 export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
   const location = useLocation();
 
   const categories = [
@@ -126,7 +124,7 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
 
                 {/* Subscribe Button - [Subscribe] */}
                 <Button
-                  onClick={() => setShowNewsletterModal(true)}
+                  onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
                   className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200 hidden sm:flex items-center space-x-2"
                   size="sm"
                 >
@@ -192,7 +190,7 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
                   <div className="px-3 py-2">
                     <Button
                       onClick={() => {
-                        setShowNewsletterModal(true);
+                        window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank');
                         setMobileMenuOpen(false);
                       }}
                       className="w-full bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 flex items-center justify-center space-x-2"
@@ -209,11 +207,6 @@ export function Header({ darkMode, toggleDarkMode }: HeaderProps) {
         </div>
       </header>
 
-      {/* Newsletter Modal */}
-      <NewsletterModal
-        isOpen={showNewsletterModal}
-        onClose={() => setShowNewsletterModal(false)}
-      />
     </>
   );
 }

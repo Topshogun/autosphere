@@ -19,8 +19,6 @@ import {
   ShoppingCart,
   Handshake
 } from 'lucide-react';
-import { NewsletterModal } from './NewsletterModal';
-import { useState } from 'react';
 
 interface AboutPageProps {
   darkMode: boolean;
@@ -28,7 +26,6 @@ interface AboutPageProps {
 }
 
 export function AboutPage({ darkMode, toggleDarkMode }: AboutPageProps) {
-  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
   const categories = [
     {
@@ -123,7 +120,7 @@ export function AboutPage({ darkMode, toggleDarkMode }: AboutPageProps) {
                     that will shape the future of business. We then rewrite these stories with clarity, context, and actionable insights.
                   </p>
                   <Button
-                    onClick={() => setShowNewsletterModal(true)}
+                    onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
                     className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200"
                   >
                     <Mail className="h-4 w-4 mr-2" />
@@ -230,7 +227,7 @@ export function AboutPage({ darkMode, toggleDarkMode }: AboutPageProps) {
                 Join thousands of professionals who trust The Apex Index for their daily dose of business intelligence.
               </p>
               <Button
-                onClick={() => setShowNewsletterModal(true)}
+                onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-all duration-200"
               >
@@ -244,11 +241,6 @@ export function AboutPage({ darkMode, toggleDarkMode }: AboutPageProps) {
         <Footer />
       </div>
 
-      {/* Newsletter Modal */}
-      <NewsletterModal
-        isOpen={showNewsletterModal}
-        onClose={() => setShowNewsletterModal(false)}
-      />
     </>
   );
 }
