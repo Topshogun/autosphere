@@ -69,14 +69,6 @@ export function ShareModal({ isOpen, onClose, title, url, description }: ShareMo
             <DialogTitle className="text-xl font-bold">
               Share Article
             </DialogTitle>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onClose}
-              className="h-6 w-6 rounded-full"
-            >
-              <CloseIcon className="h-4 w-4" />
-            </Button>
           </div>
           <DialogDescription className="text-left">
             Share this article with your network

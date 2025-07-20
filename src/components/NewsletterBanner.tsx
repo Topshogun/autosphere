@@ -35,14 +35,13 @@ export function NewsletterBanner() {
     <>
       <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-4 md:max-w-sm">
         <div className="bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-lg shadow-lg p-4 relative">
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={handleDismiss}
-            className="absolute top-2 right-2 h-6 w-6 text-white hover:bg-white/20"
+            className="absolute top-2 right-2 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+            aria-label="Close banner"
           >
-            <X className="h-4 w-4" />
-          </Button>
+            <X className="h-3 w-3 text-white/80 group-hover:text-white transition-colors" />
+          </button>
           
           <div className="flex items-start space-x-3 pr-8">
             <div className="flex-shrink-0">
