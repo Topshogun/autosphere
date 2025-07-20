@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { ShareModal } from './ShareModal';
+import { NewsletterModal } from './NewsletterModal';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Clock, User, Share2, Bookmark, Eye, Calendar, Mail } from 'lucide-react';
@@ -119,6 +120,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -370,7 +372,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
+                    onClick={() => setShowNewsletterModal(true)}
                     className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200"
                   >
                     <Mail className="h-4 w-4" />
@@ -494,7 +496,7 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
+                      onClick={() => setShowNewsletterModal(true)}
                       className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white border-0 hover:scale-105 transition-all duration-200"
                     >
                       <Mail className="h-4 w-4" />
@@ -521,6 +523,11 @@ export function ArticlePage({ darkMode, toggleDarkMode }: ArticlePageProps) {
         />
       )}
       
+      {/* Newsletter Modal */}
+      <NewsletterModal
+        isOpen={showNewsletterModal}
+        onClose={() => setShowNewsletterModal(false)}
+      />
     </div>
   );
 }

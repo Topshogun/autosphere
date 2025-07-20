@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { X, Mail, Sparkles } from 'lucide-react';
+import { NewsletterModal } from './NewsletterModal';
 
 export function NewsletterBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Show banner after 30 seconds if user hasn't dismissed it
@@ -23,7 +25,7 @@ export function NewsletterBanner() {
   };
 
   const handleSubscribe = () => {
-    window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank');
+    setShowModal(true);
     setIsVisible(false);
   };
 
@@ -68,6 +70,10 @@ export function NewsletterBanner() {
         </div>
       </div>
 
+      <NewsletterModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </>
   );
 }

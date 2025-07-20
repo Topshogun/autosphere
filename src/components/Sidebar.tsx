@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { SubscriptionForm } from './SubscriptionForm';
+import { NewsletterModal } from './NewsletterModal';
 
 const trendingTags = [
   { name: 'Machine Learning', category: 'AI' },
@@ -32,6 +33,7 @@ const categories = [
 ];
 
 export function Sidebar() {
+  const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
   return (
     <aside className="space-y-8">
@@ -70,7 +72,7 @@ export function Sidebar() {
           <Button
             variant="link"
             size="sm"
-            onClick={() => window.open('mailto:subscribe@theapexindex.com?subject=Newsletter Subscription', '_blank')}
+            onClick={() => setShowNewsletterModal(true)}
             className="text-xs text-muted-foreground hover:text-foreground"
           >
             More subscription options
@@ -116,6 +118,12 @@ export function Sidebar() {
           </div>
         </div>
       </div>
+
+      {/* Newsletter Modal */}
+      <NewsletterModal
+        isOpen={showNewsletterModal}
+        onClose={() => setShowNewsletterModal(false)}
+      />
     </aside>
   );
 }
