@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { X, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { SubscriptionForm } from './SubscriptionForm';
 
 interface NewsletterModalProps {
@@ -16,40 +16,17 @@ interface NewsletterModalProps {
 }
 
 export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
-  const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setShowModal(true);
-    }
-  }, [isOpen]);
-
-  const handleClose = () => {
-    setShowModal(false);
-    onClose();
-  };
-
   return (
-    <Dialog open={showModal} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <Sparkles className="h-4 w-4 text-white" />
-              </div>
-              <DialogTitle className="text-xl font-bold">
-                Stay Ahead of Tomorrow
-              </DialogTitle>
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center">
+              <Sparkles className="h-4 w-4 text-white" />
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={handleClose}
-              className="h-6 w-6 rounded-full"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <DialogTitle className="text-xl font-bold">
+              Stay Ahead of Tomorrow
+            </DialogTitle>
           </div>
           <DialogDescription className="text-left">
             Get the latest insights in AI, Finance, Marketing, Branding, Operations, Sales, and E-commerce delivered to your inbox. 
